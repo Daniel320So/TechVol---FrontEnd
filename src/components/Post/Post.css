@@ -1,0 +1,15 @@
+.post {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.post > * {
+    width: 90%;
+}
+
+.post h1 {
+    font-size: 40px;
+    color: #F1AE2A;
+}

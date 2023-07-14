@@ -47,3 +47,30 @@
     height: 50%;
     cursor: pointer;
 }
+
+/* Search Bar CSS for subpage */
+
+.sub-pages .search-bar {
+    width: 90%;
+    margin-top: 20px;
+    height: 40px;
+}
+
+.sub-pages .search-bar ::placeholder{
+    color: rgba(255, 255, 255, 0.521);
+    font-size: 24px;
+}
+
+.sub-pages .search-bar > * {
+    font-size: 24px;
+}
+
+.sub-pages .search-bar label {
+    font-size: 30px;
+}
+
+
+.sub-pages .search-submit {
+    font-size: 18px;
+    height: 70%;
+}

@@ -1,4 +1,4 @@
-main {
+.home-main {
     background-image: url(../../assets/HeroImage.png);
     margin: 0 ;
     height: 950px;
@@ -7,7 +7,7 @@ main {
     align-items: center;
 }
 
-main h1 {
+.home-main h1 {
     width: 70%;
     color: #F1AE2A;
     font-size: 64px;

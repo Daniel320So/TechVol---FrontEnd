@@ -1,0 +1,25 @@
+header {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #708090;
+}
+
+header h2 {
+    color: #FFE175;
+    font-size: 36px;
+    margin: 0 0 0 5%;
+}
+
+header ul {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 90px;
+    list-style-type: none;
+    color: white;
+    font-size: 24px;
+    margin: 0 3% 0 0;
+}

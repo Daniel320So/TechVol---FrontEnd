@@ -1,0 +1,17 @@
+main {
+    background-image: url(../../assets/HeroImage.png);
+    margin: 0 ;
+    height: 950px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+main h1 {
+    width: 70%;
+    color: #F1AE2A;
+    font-size: 64px;
+    text-align: center;
+    padding-top: 140px;
+    margin: 0;
+}

@@ -13,3 +13,9 @@
     font-size: 40px;
     color: #F1AE2A;
 }
+
+.projects {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}

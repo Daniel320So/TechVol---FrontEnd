@@ -11,22 +11,22 @@ let project = {
 function ProjectCard() {
 
   return (
-    <>
+    < div className="project-card">
       <h2>{project.projectName}</h2>
       <h3>{project.companyName}</h3>
-      <div>
-        <p>Skills required</p>
-        <p>{project.skills}</p>
+      <div className='project-card-description'>
+        <div className='project-card-description-left'>
+          <p>Skills required</p>
+          <p>Comitted hours</p>
+          <p>Date</p>
+        </div>
+        <div className='project-card-description-right'>
+          <p>{project.skills}</p>
+          <p>{project.hours}</p>
+          <p>{project.date}</p>
+        </div>
       </div>
-      <div>
-        <p>Comitted hours</p>
-        <p>{project.hours}</p>
-      </div>
-      <div>
-        <p>Date</p>
-        <p>{project.date}</p>
-      </div>
-    </>
+    </div>
   )
 }
 

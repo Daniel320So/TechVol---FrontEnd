@@ -15,7 +15,7 @@ function Post() {
       <main className="sub-pages post">
         < SearchBar />
         <h1> Projects </h1>
-        <div> 
+        <div className="projects"> 
             < ProjectList />
             < ProjectDetail />
         </div>        

@@ -10,7 +10,8 @@ let project = {
   companyName: "Company 1",
   skills: "Js, SQL",
   hours: "30",
-  date: "1/1/2021"
+  date: "1/1/2021",
+  description: "This is a long text"
 }
 
 function Application() {

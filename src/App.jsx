@@ -1,3 +1,6 @@
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import './App.css'
 
 // import components
@@ -8,9 +11,13 @@ import Application from './components/Application/Application'
 function App() {
 
   return (
-    <>
-      < Application/> 
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="Post" element={<Post />} />
+      <Route path="Application" element={<Application />} />
+    </Routes>
+  </BrowserRouter>
   )
 }
 

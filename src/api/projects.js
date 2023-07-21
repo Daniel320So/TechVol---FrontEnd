@@ -17,13 +17,13 @@ const fetchAllProjects = async() => {
 // filtering includes title, description and skills
 const getFilteredProjects = async(keywords) => {
     const allData = await fetchAllProjects()
-    console.log("allData", allData)
     if (!keywords) return allData;
     // filter projects by keywords
     let filteredProjects = allData.filter( p => {
         let skillList = p.skills.map( s => s.title);
         return p.title.includes(keywords) || p.description.includes(keywords) || skillList.includes(keywords)
     })
+    return filteredProjects;
 
 }
 

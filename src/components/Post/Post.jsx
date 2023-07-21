@@ -1,6 +1,7 @@
 import './Post.css'
 import { useEffect, useState } from "react"
 import { getFilteredProjects } from "../../api/projects"
+import { useParams } from "react-router-dom";
 
 // import components
 import Header from '../Header/Header'
@@ -13,16 +14,19 @@ function Post() {
 
   const [ projects, setProjects] = useState([])
   const [ selectedProject, setSelectedProject] = useState([])
+  let { key } = useParams();
+
 
   useEffect(() => {
     const updateProjects = async() => {
-      let data = await getFilteredProjects()
+      console.log(key)
+      let data = await getFilteredProjects(key)
       setProjects(data)
       setSelectedProject(data[0])
     }
 
     updateProjects()
-  }, [])
+  }, [key])
 
   const onClickHandler = (project) => {
     setSelectedProject(project)

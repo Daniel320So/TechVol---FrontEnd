@@ -83,7 +83,7 @@ function Application() {
             <input className="application-submit" type="submit" />
           </form>
           <div className='application-detail'>
-            <h3>{project.title}</h3>
+            <h3>{project.company_name}</h3>
             <h4>Details</h4>
             <p>{project.description}</p>
             <div className='application-description'>

@@ -8,7 +8,7 @@ function ProjectCard(props) {
   return (
     < div className="project-card" onClick={() => props.onClickHandler(project)}>
       <h2>{project.title}</h2>
-      <h3>{project.committed_hour}</h3>
+      <h3>{project.company_name}</h3>
       <div className='project-card-description'>
         <div className='project-card-description-left'>
           <p>Skills required</p>

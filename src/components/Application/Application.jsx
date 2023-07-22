@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import './Application.css'
-import { getProjectById } from '../../api/projects'
+import { getProjectById, submitApplication } from '../../api/projects'
 import { useNavigate } from 'react-router-dom';
 
 // import components
@@ -25,8 +25,26 @@ function Application() {
 
 
   const handleSubmit = (event) => {
+    const submit = async() => {
+      let success = await submitApplication(
+        project.id, 
+        event.target.elements.applicantName.value,
+        event.target.elements.applicantEmail.value,
+        event.target.elements.applicantPhone.value,
+        event.target.elements.linkedin.value,
+        event.target.elements.portfolio.value
+      )
+      
+      if (success ) {
+        alert("Your application is submitted successfully.")
+        navigate(-1);
+      } else {
+        alert("Your application is not submitted. Please review your information and submit again.")
+      }
+    }
     event.preventDefault();
-    console.log(event.target.elements.applicantName.value)
+    submit();
+
   }
 
   const handleBack = () => {

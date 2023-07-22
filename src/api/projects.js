@@ -35,11 +35,26 @@ const getProjectById = async(id) => {
 }
 
 // Submit application to the database
-const submitApplication = async(name, email, phone, linkedin, website) => {
-    
+const submitApplication = async(project_id, name, email, phone, linkedin, website) => {
+    console.log(project_id, name, email, phone, linkedin, website)
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          project_id,
+          name,
+          email,
+          phone,
+          linkedin,
+          website
+    })
+    };
+    let response = await fetch(apiPath + "applications/add", requestOptions);
+    return response.status == 200;
 }
 
 export {
     getFilteredProjects,
-    getProjectById
+    getProjectById,
+    submitApplication
 };

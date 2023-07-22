@@ -1,8 +1,14 @@
 import './ProjectDetail.css'
+import { useNavigate } from 'react-router-dom';
 
 function ProjectDetail( props ) {
+  const navigate = useNavigate();
+  const project = props.project;
 
-  const project = props.project
+  const handleApply = () => {
+    navigate("/Application/" + project.id);
+  }
+
   if (project) {
     return (    
       <div className='project-detail'>
@@ -10,7 +16,7 @@ function ProjectDetail( props ) {
         <h3>{project.committed_hour}</h3>
         <h4>Details</h4>
         <p>{project.description}</p>
-        <button>Apply</button>
+        <button onClick={() => handleApply()}>Apply</button>
       </div>
     )
   } else {

@@ -8,6 +8,11 @@ header {
     background-color: #708090;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 header h2 {
     color: #FFE175;
     font-size: 36px;

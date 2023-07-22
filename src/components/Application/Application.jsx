@@ -1,40 +1,39 @@
-import { useState } from 'react'
+import { useEffect, useState } from "react"
 import './Application.css'
+import { getProjectById } from '../../api/projects'
 
 // import components
 import Header from '../Header/Header'
 import SearchBar from '../SearchBar/SearchBar'
-
-let project = {
-  projectName: "Project 1",
-  companyName: "Company 1",
-  skills: "Js, SQL",
-  hours: "30",
-  date: "1/1/2021",
-  description: "This is a long text"
-}
+import { useParams } from "react-router-dom";
 
 function Application() {
 
-  const [inputs, setInputs] = useState({});
+  const { id } = useParams();
+  const [project, setProject] = useState({});
 
-  const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setInputs(values => ({ ...values, [name]: value }))
-  }
+  useEffect(() => {
+    const updateProject = async() => {
+      let data = await getProjectById(id);
+      setProject(data)
+    }
+
+    updateProject()
+  }, [id])
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(inputs);
+    console.log(event.target.elements.applicantName.value)
   }
 
   return (
     <>
       < Header />
-      <main className="sub-pages applicaction">
+      { project? 
+        <main className="sub-pages applicaction">
         < SearchBar />
-        <h1>{project.projectName}</h1>
+        <h1>{project.title}</h1>
         <div className="application-container">
           <form className="application-form" onSubmit={handleSubmit}>
             <div className='application-form-container'>
@@ -43,8 +42,6 @@ function Application() {
                 <input
                     type="text"
                     name="applicantName"
-                    value={inputs.applicantName || ""}
-                    onChange={handleChange}
                   />
               </div>
               <div className="application-form-field">
@@ -52,33 +49,34 @@ function Application() {
                 <input
                     type="text"
                     name="applicantEmail"
-                    value={inputs.applicantEmail || ""}
-                    onChange={handleChange}
                   />
               </div>
               <div className="application-form-field">
-                <label htmlFor='applicantPhone'>Phone Number</label>
+                <label htmlFor='applicantPhone'>Phone number</label>
                 <input
                     type="text"
                     name="applicantPhone"
-                    value={inputs.applicantPhone || ""}
-                    onChange={handleChange}
                   />
               </div>
               <div className="application-form-field">
-                <label htmlFor='portfolio'>Portfolio Url</label>
+                <label htmlFor='linkedin'>Linkedin url</label>
+                <input
+                    type="text"
+                    name="linkedin"
+                  />
+              </div>
+              <div className="application-form-field">
+                <label htmlFor='portfolio'>Portfolio url</label>
                 <input
                     type="text"
                     name="portfolio"
-                    value={inputs.portfolio || ""}
-                    onChange={handleChange}
                   />
               </div>
             </div>
             <input className="application-submit" type="submit" />
           </form>
           <div className='application-detail'>
-            <h3>{project.companyName}</h3>
+            <h3>{project.title}</h3>
             <h4>Details</h4>
             <p>{project.description}</p>
             <div className='application-description'>
@@ -88,15 +86,16 @@ function Application() {
                 <p>Date</p>
               </div>
               <div className='application-description-right'>
-                <p>{project.skills}</p>
-                <p>{project.hours}</p>
-                <p>{project.date}</p>
+                <p>{project && project.skills? project.skills.map( s => s.title).toString() : ""}</p>
+                <p>{project.committed_hour}</p>
+                <p>{project.start_date + "-" + project.end_date}</p>
               </div>
             </div>
           </div>
         </div>
-      </main>
-    </>
+        </main>
+      : <main></main>}
+    </> 
   )
 }
 

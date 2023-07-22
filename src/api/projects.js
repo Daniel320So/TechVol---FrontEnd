@@ -21,12 +21,25 @@ const getFilteredProjects = async(keywords) => {
     // filter projects by keywords
     let filteredProjects = allData.filter( p => {
         let skillList = p.skills.map( s => s.title);
-        return p.title.includes(keywords) || p.description.includes(keywords) || skillList.includes(keywords)
+        keywords = keywords.toLowerCase();
+        return p.title.toLowerCase().includes(keywords) || p.description.toLowerCase().includes(keywords) || skillList.toString().toLowerCase().includes(keywords)
     })
-    return filteredProjects;
+    return filteredProjects? filteredProjects : allData;
+}
 
+// Return a project by id
+const getProjectById = async(id) => {
+    const allData = await fetchAllProjects();
+    const project = allData.find( p => p.id == id);
+    return project
+}
+
+// Submit application to the database
+const submitApplication = async(name, email, phone, linkedin, website) => {
+    
 }
 
 export {
-    getFilteredProjects
+    getFilteredProjects,
+    getProjectById
 };

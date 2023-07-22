@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import './Application.css'
 import { getProjectById } from '../../api/projects'
+import { useNavigate } from 'react-router-dom';
 
 // import components
 import Header from '../Header/Header'
@@ -11,6 +12,7 @@ function Application() {
 
   const { id } = useParams();
   const [project, setProject] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const updateProject = async() => {
@@ -27,12 +29,17 @@ function Application() {
     console.log(event.target.elements.applicantName.value)
   }
 
+  const handleBack = () => {
+    navigate(-1);
+  }
+
   return (
     <>
       < Header />
       { project? 
         <main className="sub-pages applicaction">
         < SearchBar />
+        <button className="back-button" onClick={handleBack}>back to previous page</button>
         <h1>{project.title}</h1>
         <div className="application-container">
           <form className="application-form" onSubmit={handleSubmit}>

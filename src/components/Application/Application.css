@@ -9,7 +9,6 @@
     width: 90%;
 }
 
-
 .applicaction h1 {
     font-size: 40px;
     color: #F1AE2A;
@@ -100,4 +99,10 @@
 .application-description-right {
     width: 50%;
     text-align: center;
+}
+
+.back-button {
+    width: 150px;
+    align-self: flex-start;
+    margin: 20px 0 0 5%;
 }

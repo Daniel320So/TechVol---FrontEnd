@@ -2,13 +2,13 @@
 
 
 
-const apiPath = "http://localhost/api/";
+const apiPath = "http://localhost/";
 
 // Return an Object Array
 // Object => {id, user_id, title, description, status, committed_hour, start_Date, end_date, skills}
 // skills => {id, title, description} 
 const fetchAllProjects = async() => {
-    const response = await fetch(apiPath + "projects");
+    const response = await fetch(apiPath + "api/projects");
     const data = await response.json();
     return data;
 }
@@ -49,12 +49,18 @@ const submitApplication = async(project_id, name, email, phone, linkedin, websit
           website
     })
     };
-    let response = await fetch(apiPath + "applications/add", requestOptions);
+    let response = await fetch(apiPath + "api/applications/add", requestOptions);
     return response.status == 200;
+}
+
+// return recruiter link
+const getRecruiterLink = () => {
+    return apiPath + "console/login"
 }
 
 export {
     getFilteredProjects,
     getProjectById,
-    submitApplication
+    submitApplication,
+    getRecruiterLink
 };

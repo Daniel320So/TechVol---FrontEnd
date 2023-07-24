@@ -2,7 +2,7 @@
 
 
 
-const apiPath = "http://localhost/";
+const apiPath = "http://104.225.142.52/";
 
 // Return an Object Array
 // Object => {id, user_id, title, description, status, committed_hour, start_Date, end_date, skills}

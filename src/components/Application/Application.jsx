@@ -111,9 +111,9 @@ function Application() {
                 <p>Date</p>
               </div>
               <div className='application-description-right'>
-                <p>{project && project.skills? project.skills.map( s => s.title).toString() : ""}</p>
+                <p>{project && project.skills? project.skills.map( s => s.title).join(", ") : ""}</p>
                 <p>{project.committed_hour}</p>
-                <p>{project.start_date + "-" + project.end_date}</p>
+                <p>{project.start_date + " to " + project.end_date}</p>
               </div>
             </div>
           </div>

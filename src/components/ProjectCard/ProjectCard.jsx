@@ -2,7 +2,7 @@ import './ProjectCard.css'
 
 function ProjectCard(props) {
   const project = props.project;
-  const skills = project.skills.map( s => s.title).toString();
+  const skills = project.skills.map( s => s.title).join(", ");
 
 
   return (
@@ -18,7 +18,7 @@ function ProjectCard(props) {
         <div className='project-card-description-right'>
           <p>{skills}</p>
           <p>{project.committed_hour}</p>
-          <p>{project.start_date + "-" +  project.end_date}</p>
+          <p>{project.start_date + " to " +  project.end_date}</p>
         </div>
       </div>
     </div>
